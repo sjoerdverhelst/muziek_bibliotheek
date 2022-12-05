@@ -26,7 +26,7 @@ include "model/modelALbums.php";
             <input type="text" class="form-control" name="Jaartal" value="<?=$jaartal?>">
         </div>
         <div class="mb-3 ">
-            <input class="btn btn-primary float-end" type="submit" name="submit" value="Submit">
+            <input class="btn btn-primary float-end" type="submit" name="UpdateAlbum" value="Submit">
         </div>
     </form>
 </div>

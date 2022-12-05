@@ -32,14 +32,38 @@ class modelAlbums{
         return $row;
     }
 
-    
-    
-}
+    public function deleteAlbum($id){
 
-if (isset($_POST['submit'])) {
+        //stuurt een query naar de database
+        $stm = $this->link->query("DELETE FROM albums WHERE id = $id");
+        //
+        $row = $stm->fetchAll(PDO::FETCH_ASSOC);
+        header('Location: http://localhost/muziek_bibliotheek/?page=album');
+    }
+}
+if (isset($_POST['AddAlbum'])) {
     include "connection.php";
     $db_connection = new db();
     $pdo = $db_connection->connect();
+    
+    $naam = $_POST['naam'];
+    $jaartal = $_POST['jaartal'];
+    $data = [
+            'naam' => $naam,
+            'jaartal' => $jaartal
+        ];
+        $sql = "INSERT INTO albums (naam, jaartal) VALUES (:naam, :jaartal)";
+        $stmt= $pdo->prepare($sql);
+        $stmt->execute($data);
+
+    header('Location: http://localhost/muziek_bibliotheek/?page=album');
+}
+
+if (isset($_POST['UpdateAlbum'])) {
+    include "connection.php";
+    $db_connection = new db();
+    $pdo = $db_connection->connect();
+
     $naam = $_POST['naam'];
     $jaartal = $_POST['Jaartal'];
     $id = $_POST['id'];

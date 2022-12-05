@@ -4,8 +4,8 @@ include "model/modelAlbums.php";
 $modelAlbums = new modelAlbums();
 $showAll = $modelAlbums->showAllAlbums();
 
-if (isset($_POST['submit'])) {
-  echo "GeeksforGeeks";
+if (isset($_GET['deleted'])) {
+  $modelAlbums->deleteAlbum($_GET['deleted']);
 }
 ?>
 
@@ -21,7 +21,8 @@ if (isset($_POST['submit'])) {
         <th class="col">ALbum</th>
         <th class="col">Jaartal</th>
         <th class="col">Nummers</th>
-        <th class="col">Edit</th>
+        <th class="col"></th>
+        <th class="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -33,6 +34,7 @@ if (isset($_POST['submit'])) {
                 print "<td>" . $r['jaartal']. "</td>";
                 print "<td> <a class='btn btn-sm btn-primary' href='?album_id=" .$r['id']. "'><i class='bi bi-music-note'></i></a> </td>";
                 print "<td> <a class='btn btn-sm btn-primary' href='?page=editalbum&album_id=". $r['id']."'>Edit</a> </td>";
+                print "<td> <a class='btn btn-sm btn-danger' href='?deleteAlbum=". $r['id']."'>Delete</a> </td>";
             ?></tr><?php
         }
     ?>
@@ -51,17 +53,17 @@ if (isset($_POST['submit'])) {
       </div>
       <div class="modal-body">
         <div class="d-flex w-100">
-            <form action="" class="w-100">
+            <form action="model/modelAlbums.php" method="post" class="w-100">
                 <div class="mb-3">
                     <label class="form-label">Album Naam</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1">
+                    <input type="text" class="form-control" name="naam">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Jaartal</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" >
+                    <input type="text" class="form-control" name="jaartal" >
                 </div>
                 <div class="mb-3 ">
-                    <button class="btn btn-primary float-end" type="submit">Opslaan</button>
+                <input class="btn btn-primary float-end" type="submit" name="AddAlbum" value="Opslaan">
                 </div>
             </form>
         </div>

@@ -35,12 +35,14 @@
                     
 
                 }elseif(isset($_GET['album_id'])){
-                    
                     include "view/music/viewMusicById.php";
  
+                }elseif(isset($_GET['deleteAlbum'])){
+                    include "model/modelAlbums.php";
+                    $modelAlbums = new modelAlbums();
+                    $modelAlbums->deleteAlbum($_GET['deleteAlbum']);
                 }else{
                     include "view/viewHome.php";
-
                 }
 
             ?>
