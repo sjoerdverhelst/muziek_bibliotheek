@@ -6,6 +6,7 @@ include "model/modelALbums.php";
 
     foreach($getById as $r)
     {
+        $id = $r['id'];
         $naam = $r['naam'];
         $jaartal = $r['jaartal'];
     }
@@ -14,17 +15,18 @@ include "model/modelALbums.php";
 <h3>edit album</h3>
 
 <div class="d-flex w-25">
-    <form action="" class="w-100">
+    <form action="model/modelAlbums.php" method="post" class="w-100">
+        <input type="hidden" class="form-control" name="id" value="<?=$id?>">
         <div class="mb-3">
             <label class="form-label">Album Naam</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" value="<?=$naam?>">
+            <input type="text" class="form-control" name="naam" value="<?=$naam?>">
         </div>
         <div class="mb-3">
             <label class="form-label">Jaartal</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" value="<?=$jaartal?>">
+            <input type="text" class="form-control" name="Jaartal" value="<?=$jaartal?>">
         </div>
         <div class="mb-3 ">
-            <button class="btn btn-primary float-end" type="submit">Opslaan</button>
+            <input class="btn btn-primary float-end" type="submit" name="submit" value="Submit">
         </div>
     </form>
 </div>

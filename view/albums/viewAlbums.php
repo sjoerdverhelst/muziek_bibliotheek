@@ -3,6 +3,10 @@ include "model/modelAlbums.php";
 
 $modelAlbums = new modelAlbums();
 $showAll = $modelAlbums->showAllAlbums();
+
+if (isset($_POST['submit'])) {
+  echo "GeeksforGeeks";
+}
 ?>
 
 <h1>Albums</h1>

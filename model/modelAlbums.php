@@ -31,4 +31,27 @@ class modelAlbums{
         $row = $stm->fetchAll(PDO::FETCH_ASSOC);
         return $row;
     }
+
+    
+    
+}
+
+if (isset($_POST['submit'])) {
+    include "connection.php";
+    $db_connection = new db();
+    $pdo = $db_connection->connect();
+    $naam = $_POST['naam'];
+    $jaartal = $_POST['Jaartal'];
+    $id = $_POST['id'];
+
+    $data = [
+        'naam' => $naam,
+        'jaartal' => $jaartal,
+        'id' => $id,
+    ];
+    $sql = "UPDATE albums SET naam=:naam, jaartal=:jaartal WHERE id=:id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute($data);
+
+    header('Location: http://localhost/muziek_bibliotheek/?page=album');
 }
