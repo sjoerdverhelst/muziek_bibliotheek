@@ -17,9 +17,16 @@ class modelAlbums{
         $rows = $stm->fetchAll(PDO::FETCH_ASSOC);
         return $rows;
     }
-    public function showAlbumNameById($id){
+    public function showAllAlbumsDESC(){
         //stuurt een query naar de database
-        $stm = $this->link->query("SELECT naam FROM albums WHERE id = $id");
+        $stm = $this->link->query("SELECT * FROM albums ORDER BY id DESC LIMIT 5");
+        //
+        $rows = $stm->fetchAll(PDO::FETCH_ASSOC);
+        return $rows;
+    }
+    public function showAlbumById($id){
+        //stuurt een query naar de database
+        $stm = $this->link->query("SELECT * FROM albums WHERE id = $id");
         //
         $row = $stm->fetchAll(PDO::FETCH_ASSOC);
         return $row;

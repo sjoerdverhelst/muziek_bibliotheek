@@ -20,20 +20,29 @@
         <div class="p-2">
             <?php
                 if(isset($_GET['page'])){
-
                     if($_GET['page'] == "Home"){
                         include "view/viewHome.php";
                     }
                     if($_GET['page'] == "album"){
-                        include "view/viewALbums.php";
+                        include "view/albums/viewALbums.php";
+                    }
+                    if($_GET['page'] == "editalbum"){
+                        include "view/albums/viewEditALbum.php";
                     }
                     if($_GET['page'] == "music"){
-                        include "view/viewMusic.php";
+                        include "view/music/viewMusic.php";
                     }
+                    
 
+                }elseif(isset($_GET['album_id'])){
+                    
+                    include "view/music/viewMusicById.php";
+ 
                 }else{
                     include "view/viewHome.php";
+
                 }
+
             ?>
         </div>
        <?php

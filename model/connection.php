@@ -8,14 +8,13 @@ class db{
 
     function connect (){
         try{
-            $this->db_conn=new PDO("mysql:host=$this->db_host;dbname=$this->db_name",$this->db_user,  $this->db_pass);
+            $this->db_conn = new PDO("mysql:host=$this->db_host;dbname=$this->db_name",$this->db_user,  $this->db_pass);
             return $this->db_conn;
            }
            catch(PDOException $e){
-               return $e->getMessage();
-               echo 'errorrrrrrrr';
-
-                }
+                return $e->getMessage();
+                echo 'errorrrrrrrr';
+            }
         }
 
 }
