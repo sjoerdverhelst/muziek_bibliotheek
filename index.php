@@ -32,6 +32,9 @@
                     if($_GET['page'] == "music"){
                         include "view/music/viewMusic.php";
                     }
+                    if($_GET['page'] == "editMusic"){
+                        include "view/music/viewEditMusic.php";
+                    }
                     
 
                 }elseif(isset($_GET['album_id'])){
@@ -41,6 +44,10 @@
                     include "model/modelAlbums.php";
                     $modelAlbums = new modelAlbums();
                     $modelAlbums->deleteAlbum($_GET['deleteAlbum']);
+                }elseif(isset($_GET['deleteMusic'])){
+                    include "model/modelMusic.php";
+                    $modelNummers = new modelMusic();
+                    $modelNummers->deleteNummer($_GET['deleteMusic']);
                 }else{
                     include "view/viewHome.php";
                 }

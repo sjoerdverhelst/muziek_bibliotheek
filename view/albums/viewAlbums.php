@@ -15,7 +15,7 @@ if (isset($_GET['deleted'])) {
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Album</button>
 </div>
 
-<table class="table w-25">
+<table class="table w-50">
   <thead>
     <tr>
         <th class="col">ALbum</th>
@@ -48,7 +48,7 @@ if (isset($_GET['deleted'])) {
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Album Toevoegen</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -63,7 +63,7 @@ if (isset($_GET['deleted'])) {
                     <input type="text" class="form-control" name="jaartal" >
                 </div>
                 <div class="mb-3 ">
-                <input class="btn btn-primary float-end" type="submit" name="AddAlbum" value="Opslaan">
+                  <input class="btn btn-primary float-end" type="submit" name="AddAlbum" value="Opslaan">
                 </div>
             </form>
         </div>

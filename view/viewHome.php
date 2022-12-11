@@ -21,7 +21,7 @@ $showALbums = $modelAlbums->showAllAlbumsDESC();
     d-block van display block zodat ze onder elkaar komen
     class table is dat het een table moet zijn coll zorgt er voor dat alles in die rij de gelijke breedte heeft  
 -->
-<div class="d-flex w-50 mt-5">
+<div class="d-flex w-75 mt-5">
     <div class="d-block w-50 pe-2">
         <h5>Recent Toegevoegde Nummers</h5>
         <table class="table ">
